@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+
+            body {
+                font-size: 14px;
+                margin: 0;
+            }
+
+            /*a {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }*/
+
+            svg {
+                width: 100%;
+            }
+
+            .path {
+                stroke-dasharray: 3840;
+                stroke-dashoffset: 0;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                animation: dash 1s linear alternate infinite;
+            }
+
+            @keyframes dash {
+              from {
+                stroke-dashoffset: 3840;
+              }
+              to {
+                stroke-dashoffset: 0;
+              }
+            }
+
+            svg text, svg text tspan {font-family: sans-serif;}
+
+            svg text tspan {transition: fill 1s;}
+
+            .select {
+                fill: #000;
+            }
+
+            .gras {
+                font-weight: bold;
+            }
+
+            .gris {
+                fill: #AAA;
+            }
+
+            .opacite {
+                opacity: .5;
+            }
+
+            #destinations {
+                position: absolute;
+                width: 45%;
+            }
+
+            #iti1, #iti2, #iti3, #iti4, #iti5 {
+                animation: clignote 2s alternate infinite;
+                cursor: pointer;
+            }
+            @keyframes clignote {
+                0% {fill: #000;}
+                100% {fill: #3cb6ac;}
+            }
+
+        </style>
+
+    </head>
+    <body>
+    <!-- <div id="destinations">
+        <a href="#" id="iti1" onclick="showIti(this.id);">Mantes la Jolie</a><br>
+        <a href="#" id="iti2" onclick="showIti(this.id);">Plaisir Grignon</a><br>
+        <a href="#" id="iti3" onclick="showIti(this.id);">Rambouillet</a><br>
+        <a href="#" id="iti4" onclick="showIti(this.id);">Sèvres Rive Gauche / Versailles Chantiers / St-Cyr</a><br>
+        <a href="#" id="iti5" onclick="showIti(this.id);">Dreux</a>
+    </div> -->
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 12 320 509" enable-background="new 0 12 320 509">
+    <text transform="translate(166.33 29.04)">
+        <tspan x="0" y="0" class="gare gras iti1 iti4 iti2 iti3 iti5">Paris-Montparnasse</tspan>
+        <tspan x="0" y="17" class="gare iti1 iti4 iti2 iti3">Vanves - Malakoff</tspan>
+        <tspan x="0" y="34" class="gare iti1 iti4 iti2 iti3">Clamart</tspan>
+        <tspan x="0" y="51" class="gare iti1 iti4 iti2 iti3">Meudon</tspan>
+        <tspan x="0" y="68" class="gare iti1 iti4 iti2 iti3">Bellevue</tspan>
+        <tspan x="0" y="85" class="gare iti1 iti4 iti2 iti3">Sèvres-Rive-Gauche</tspan>
+        <tspan x="0" y="102" class="gare iti1 iti4 iti2 iti3">Chaville-Rive-Gauche</tspan>
+        <tspan x="0" y="119" class="gare gras iti1 iti4 iti2 iti3">Viroflay-Rive-Gauche</tspan>
+        <tspan x="0" y="136" class="gare gras iti1 iti4 iti2 iti3 iti5">Versailles-Chantiers</tspan>
+        <tspan x="0" y="153" class="gare gras iti1 iti4 iti2 iti3" id="iti4" onclick="showIti(this.id);">Saint-Cyr</tspan>
+    </text>
+    <text transform="translate(186.42 202.1)">
+        <tspan x="0" y="0" class="gare gras iti3">Saint-Quentin-</tspan>
+        <tspan x="0" y="14" class="gare gras iti3">en-Yvelines</tspan>
+        <tspan x="0" y="31" class="gare iti3">Trappes</tspan>
+        <tspan x="0" y="48" class="gare gras iti3">La Verrière</tspan>
+        <tspan x="0" y="65" class="gare iti3">Coignières</tspan>
+        <tspan x="0" y="81" class="gare iti3">Les Essarts-le-Roi</tspan>
+        <tspan x="0" y="99" class="gare iti3">Le Perray</tspan>
+        <tspan x="0" y="116" class="gare gras iti3" id="iti3" onclick="showIti(this.id);">Rambouillet</tspan>
+    </text>
+    <text transform="translate(61.53 207.1)">
+        <tspan x="0" y="0" class="gare iti1 iti2">Fontenay-</tspan>
+        <tspan x="8.579" y="14" class="gare iti1 iti2">le-Fleury</tspan>
+        <tspan x="-6.993" y="31" class="gare iti1 iti2">Villepreux -</tspan>
+        <tspan x="-6.221" y="45" class="gare iti1 iti2">Les Clayes</tspan>
+        <tspan x="16.365" y="62" class="gare iti1 iti2">Plaisir -</tspan>
+        <tspan x="-6.221" y="76" class="gare iti1 iti2">Les Clayes</tspan>
+        <tspan x="-45.869" y="93" class="gare gras iti1 iti2 iti5" id="iti2" onclick="showIti(this.id);">Plaisir - Grignon</tspan>
+    </text>
+    <text transform="translate(80.85 338.33)">
+        <tspan x="0" y="0" class="gare iti1">Beynes</tspan>
+        <tspan x="-70.772" y="17" class="gare iti1">Mareil-sur-Mauldre</tspan>
+        <tspan x="8.565" y="34" class="gare iti1">Maule</tspan>
+        <tspan x="-44.34" y="51" class="gare iti1">Nézel - Aulnay</tspan>
+        <tspan x="-73.67" y="68" class="gare gras iti1">Épône - Mézières</tspan>
+        <tspan x="-60.44" y="85" class="gare gras iti1" id="iti1" onclick="showIti(this.id);">Mantes-la-Jolie</tspan>
+    </text>
+    <text transform="translate(185.42 338.33)">
+        <tspan x="0" y="0" class="gare iti5">Villiers - Neauphle -</tspan>
+        <tspan x="0" y="14" class="gare iti5">Pontchartrain</tspan>
+        <tspan x="0" y="31" class="gare iti5">Montfort-l'Amaury -</tspan>
+        <tspan x="0" y="45" class="gare iti5">Méré</tspan>
+        <tspan x="0" y="62" class="gare iti5">Garancières -</tspan>
+        <tspan x="0" y="76" class="gare iti5">La Queue</tspan>
+        <tspan x="0" y="93" class="gare iti5">Orgerus - Béhoust</tspan>
+        <tspan x="0" y="110" class="gare iti5">Tacoignières -</tspan>
+        <tspan x="0" y="124" class="gare iti5">Richebourg</tspan>
+        <tspan x="0" y="141" class="gare iti5">Houdan</tspan>
+        <tspan x="0" y="158" class="gare iti5">Marchezais - Broué</tspan>
+        <tspan x="0" y="175" class="gare gras iti5" id="iti5" onclick="showIti(this.id);">Dreux</tspan>
+    </text>
+    <g fill="none" stroke="#3cb6ac" stroke-width="1.992">
+        <path d="m156.68 26.09v151.87c0 5.5 1.268 10.604 2.818 11.342s6.196 2.952 10.324 4.918c4.128 1.967 7.506 8.08 7.506 13.576v106.29"/>
+        <path d="m158.14 188.65l-14.795 8.477c-4.772 2.734-8.677 9.471-8.677 14.971v85.54c0 5.5 4.221 11.559 9.381 13.464l8.992 3.32c5.16 1.905 12.255 5.769 15.767 8.587 3.512 2.818 6.386 9.623 6.386 15.12v171.98"/>
+        <path d="m136.65 419.45v-81.32c0-5.5 4.182-11.663 9.292-13.695l16.48-6.552"/>
+    </g>
+    <g fill="#3cb6ac">
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 38.578c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 55.788c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 72.998c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 90.21c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 107.42c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 124.63c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti3" d="m177.02 225.43c1.375.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti2" d="m137.16 200.1c1.375.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti2" d="m134.67 232.06c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti2" d="m134.67 262.01c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti3" d="m177.02 259.52c1.375.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti3" d="m177.02 275.91c1.375.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti3" d="m177.02 292.3c1.375.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1" d="m137.16 331.35c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti5" d="m174.19 330.57c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti5" d="m175.19 361.34c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti5" d="m175.19 392.76c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti5" d="m175.19 424.17c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti5" d="m175.19 440.02c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti5" d="m175.19 473.07c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti5" d="m175.19 487.92c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1" d="m136.65 348.39c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1" d="m136.65 365.32c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1" d="m136.65 382.26c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+    </g>
+    <g fill="#fff" stroke="#000" stroke-width="1.245">
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 141.84c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti4 iti2 iti3 iti5" d="m156.68 159.05c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti4 iti2 iti3" d="m156.68 176.26c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti3" d="m175.53 197.12c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1 iti2 iti5" d="m134.18 294.79c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1" d="m136.65 399.42c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti1" d="m136.65 417.45c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+        <path class="gare iti3" d="m177.02 242.65c1.375.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+
+        <path class="gare iti3" d="m177.02 311.65c1.375.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.375-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+    </g>
+    <path d="m156.68 22.852c1.376.002 2.489 1.118 2.487 2.494-.002 1.375-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+    <path class="gare iti5" fill="#fff" stroke="#000" stroke-width="1.245" d="m175.19 506.49c1.376.002 2.489 1.118 2.487 2.494-.002 1.376-1.118 2.489-2.494 2.487-1.376-.002-2.489-1.118-2.487-2.494.002-1.347 1.074-2.448 2.42-2.486"/>
+</svg>
+
+        <script>
+            function showIti(id){
+                var w = document.getElementsByClassName("gare");
+                for (j = 0; j < w.length; j++) {
+                    if(w[j].classList.contains(id) == true){
+                        w[j].style.fillOpacity = "1";
+                        w[j].style.strokeOpacity = "1";
+                    }else{
+                        w[j].style.fillOpacity = ".1";
+                        w[j].style.strokeOpacity = ".1";
+                    }
+                };
+
+                /*var x = document.getElementsByClassName(id);
+             
+                for (i = 0; i < x.length; i++) {
+                    //x[i].classList.toggle("select");
+                    //x[i].style.fill = "#000";
+                    console.log(x[i]);
+                }*/
+
+                return false;
+            }
+        </script>
+
+    </body>
+</html>
